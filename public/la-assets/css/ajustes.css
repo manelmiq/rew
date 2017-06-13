@@ -1,0 +1,12 @@
+.modal-dialog{
+    width: 80%;
+}
+.modal-header{
+    color: white;
+    background-color: #00acd6;
+    text-align: center;
+}
+
+#myModalLabel{
+    font-size: 22px;
+}
