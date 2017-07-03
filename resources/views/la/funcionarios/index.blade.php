@@ -8,7 +8,7 @@
 
 @section("headerElems")
 @la_access("Funcionarios", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Funcionario</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Cadastrar Funcionario</button>
 @endla_access
 @endsection
 
@@ -51,7 +51,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Funcionario</h4>
+				<h4 class="modal-title" id="myModalLabel">Cadastrar Funcionario</h4>
 			</div>
 			{!! Form::open(['action' => 'LA\FuncionariosController@store', 'id' => 'funcionario-add-form']) !!}
 			<div class="modal-body">

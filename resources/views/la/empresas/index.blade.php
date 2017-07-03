@@ -8,7 +8,7 @@
 
 @section("headerElems")
 @la_access("Empresas", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Cadastro de Empresa</button>
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Cadastro Empresa</button>
 @endla_access
 @endsection
 
@@ -34,7 +34,12 @@
 			<th>{{ $module->fields[$col]['label'] or ucfirst($col) }}</th>
 			@endforeach
 			@if($show_actions)
-			<th>Actions</th>
+			<th>
+                <div class="row">
+                    <div class="col-xs-6">     Editar  </div>
+                    <div class="col-xs-6"> Excluir </div>
+                </div>
+            </th>
 			@endif
 		</tr>
 		</thead>
@@ -50,20 +55,38 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Cadastro Nova Empresa</h4>
+                <div class="row">
+                    <div class="col-xs-2">
+                         <img src="{{asset('/la-assets/img/logo.png')}}" size="45" height="45" alt="">
+                    </div>
+                    <div class="col-xs-8">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Cadastro Empresa</h4>
+
+                    </div>
+
+                </div>
+
 			</div>
 			{!! Form::open(['action' => 'LA\EmpresasController@store', 'id' => 'empresa-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
-                    @la_form($module)
-					
-					{{--
-					@la_input($module, 'razao_social')
-					@la_input($module, 'nome_fantasia')
-					@la_input($module, 'licencas')
-					@la_input($module, 'ativo')
-					--}}
+					<div class="row">
+						<div class="col-xs-6">
+							@la_input($module, 'razao_social')
+						</div>
+						<div class="col-xs-6">
+							@la_input($module, 'nome_fantasia')
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2">
+							@la_input($module, 'ativo')
+						</div>
+						<div class="col-xs-6">
+							@la_input($module, 'num_licencas')
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -80,12 +103,10 @@
 
 @push('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('la-assets/plugins/datatables/datatables.min.css') }}"/>
-<link rel="stylesheet" type="text/css" href="{{ asset('la-assets/css/ajustes.css') }}"/>
 @endpush
 
 @push('scripts')
 <script src="{{ asset('la-assets/plugins/datatables/datatables.min.js') }}"></script>
-
 <script>
 $(function () {
 	$("#example1").DataTable({
@@ -95,7 +116,7 @@ $(function () {
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
-			searchPlaceholder: "Search"
+			searchPlaceholder: "Procurar"
 		},
 		@if($show_actions)
 		columnDefs: [ { orderable: false, targets: [-1] }],

@@ -109,7 +109,6 @@
 					<div class="panel-body">
 						@la_display($module, 'razao_social')
 						@la_display($module, 'nome_fantasia')
-						@la_display($module, 'licencas')
 						@la_display($module, 'ativo')
 					</div>
 				</div>

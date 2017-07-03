@@ -17,11 +17,11 @@ class CreateEmpresasTable extends Migration
      */
     public function up()
     {
-        Module::generate("Empresas", 'empresas', 'razao_social', 'fa-cube', [
-            ["razao_social", "Razão Social", "String", false, "", 0, 256, false],
-            ["nome_fantasia", "Nome Fantasia", "String", false, "", 0, 256, false],
-            ["licencas", "Licenças", "Dropdown", false, "", 0, 0, false, ["Licen\u00e7a 1","Licen\u00e7a2"]],
-            ["ativo", "Ativo", "Checkbox", false, "", 0, 0, false],
+        Module::generate("Empresas", 'empresas', 'nome_fantasia', 'fa-cube', [
+            ["razao_social", "Razão Social", "String", false, "", 7, 256, true],
+            ["nome_fantasia", "Nome Fantasia", "String", false, "", 0, 256, true],
+            ["ativo", "Ativo", "Checkbox", false, "", 0, 0, true],
+            ["num_licencas", "Licenças", "Integer", false, "", 0, 11, true],
         ]);
 		
 		/*

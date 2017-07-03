@@ -18,8 +18,7 @@ class CreateGruposUsuariosTable extends Migration
     public function up()
     {
         Module::generate("Grupos_usuarios", 'grupos_usuarios', 'nome', 'fa-cube', [
-            ["nome", "Nome do Grupo", "Name", false, "", 0, 256, false],
-            ["usuario", "Usuario", "Dropdown", false, "", 0, 0, false, "@users"],
+            ["nome", "Nome do grupo", "Name", false, "", 0, 256, false],
         ]);
 		
 		/*

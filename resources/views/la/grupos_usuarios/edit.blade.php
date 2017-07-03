@@ -34,7 +34,6 @@
 					
 					{{--
 					@la_input($module, 'nome')
-					@la_input($module, 'usuario')
 					--}}
                     <br>
 					<div class="form-group">

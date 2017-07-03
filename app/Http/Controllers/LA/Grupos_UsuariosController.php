@@ -23,7 +23,7 @@ class Grupos_UsuariosController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'nome';
-	public $listing_cols = ['id', 'nome', 'usuario'];
+	public $listing_cols = ['id', 'nome'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns

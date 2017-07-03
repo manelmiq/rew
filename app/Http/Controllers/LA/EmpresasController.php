@@ -22,8 +22,8 @@ use App\Models\Empresa;
 class EmpresasController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'razao_social';
-	public $listing_cols = ['id', 'razao_social', 'nome_fantasia', 'licencas', 'ativo'];
+	public $view_col = 'nome_fantasia';
+	public $listing_cols = ['id', 'razao_social', 'nome_fantasia', 'ativo'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
@@ -230,16 +230,19 @@ class EmpresasController extends Controller
 			}
 			
 			if($this->show_action) {
-				$output = '';
+				$output = '<div class="row">';
 				if(Module::hasAccess("Empresas", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/empresas/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+					$output .= '<div class="col-xs-6"> <a href="'.url(config('laraadmin.adminRoute') . '/empresas/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a></div>';
 				}
 				
 				if(Module::hasAccess("Empresas", "delete")) {
+				    $output .= '<div class="col-xs-6">';
 					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.empresas.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
+					$output .="</div>";
 				}
+				$output .= "</div>";
 				$data->data[$i][] = (string)$output;
 			}
 		}

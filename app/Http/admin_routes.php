@@ -99,6 +99,7 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/filials', 'LA\FilialsController');
 	Route::get(config('laraadmin.adminRoute') . '/filial_dt_ajax', 'LA\FilialsController@dtajax');
 
+
 	/* ================== Grupos_Usuarios ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/grupos_usuarios', 'LA\Grupos_UsuariosController');
 	Route::get(config('laraadmin.adminRoute') . '/grupos_usuario_dt_ajax', 'LA\Grupos_UsuariosController@dtajax');

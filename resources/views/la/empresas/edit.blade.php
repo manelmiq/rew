@@ -35,7 +35,6 @@
 					{{--
 					@la_input($module, 'razao_social')
 					@la_input($module, 'nome_fantasia')
-					@la_input($module, 'licencas')
 					@la_input($module, 'ativo')
 					--}}
                     <br>

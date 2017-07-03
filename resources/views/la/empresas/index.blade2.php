@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Grupos Usuarios")
-@section("contentheader_description", "Grupos Usuarios listing")
-@section("section", "Grupos Usuarios")
+@section("contentheader_title", "Empresas")
+@section("contentheader_description", "Empresas listing")
+@section("section", "Empresas")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Grupos Usuarios Listing")
+@section("htmlheader_title", "Empresas Listing")
 
 @section("headerElems")
-@la_access("Grupos_Usuarios", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Grupos Usuario</button>
+@la_access("Empresas", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Empresa</button>
 @endla_access
 @endsection
 
@@ -45,21 +45,23 @@
 	</div>
 </div>
 
-@la_access("Grupos_Usuarios", "create")
+@la_access("Empresas", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Grupos Usuario</h4>
+				<h4 class="modal-title" id="myModalLabel">Add Empresa</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\Grupos_UsuariosController@store', 'id' => 'grupos_usuario-add-form']) !!}
+			{!! Form::open(['action' => 'LA\EmpresasController@store', 'id' => 'empresa-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
-					@la_input($module, 'nome')
+					@la_input($module, 'razao_social')
+					@la_input($module, 'nome_fantasia')
+					@la_input($module, 'ativo')
 					--}}
 				</div>
 			</div>
@@ -86,7 +88,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/grupos_usuario_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/empresa_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -96,7 +98,7 @@ $(function () {
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#grupos_usuario-add-form").validate({
+	$("#empresa-add-form").validate({
 		
 	});
 });
